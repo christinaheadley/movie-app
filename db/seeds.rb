@@ -1,5 +1,9 @@
-actor = Actor.new({first_name: "Benedict", last_name: "Cumberbatch", known_for: "Sherlock"})
-actor.save
+# actor = Actor.new({first_name: "Benedict", last_name: "Cumberbatch", known_for: "Sherlock"})
+# actor.save
+
+movie = Movie.create(title: "The Bourne Identity", year: 2002, plot: "An amnesiac is chased through Europe by the CIA.")
+movie = Movie.create(title: "Uncut Gems", year: 2019, plot: "A gambling-addicted jewels dealer schemes to make money.")
+movie = Movie.create(title: "Crazy Rich Asians", year: 2018, plot: "A woman travels to Singapore to meet her fiance's ultra-rich family.")
 
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
