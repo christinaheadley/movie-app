@@ -1,5 +1,7 @@
 class Api::ActorsController < ApplicationController
 
+  before_action :authenticate_user, except: [:index, :show]
+
   def index
     @actors = Actor.order(age: :desc)
     render "index.json.jb" 
@@ -14,8 +16,11 @@ class Api::ActorsController < ApplicationController
     age: params[:age],
     movie_id: params[:movie_id]
   )
-    @actor.save
-    render "show.json.jb"
+    if @actor.save
+      render "show.json.jb"
+    else
+      render json: { errors: @actor.errors.full_messages }, status: :unprocessable_entity
+    end
   end
 
   def show
@@ -31,13 +36,16 @@ class Api::ActorsController < ApplicationController
     @actor.gender = params[:gender] || @actor.gender
     @actor.age = params[:age] || @actor.age
     @actor.movie_id = params[:movie_id] || @actor.movie_id
-    @actor.save
-    render "show.json.jb"
+    if @actor.save
+      render "show.json.jb"
+    else
+      render json: { errors: @actor.errors.full_messages}, status: :unprocessable_entity
+    end
   end
 
   def destroy
     actor = Actor.find_by(id: params[:id])
-    actor.destroy
+    @actor.destroy
     render json: {message: "record gone fo-evah!"}
   end
 
