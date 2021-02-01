@@ -12,3 +12,8 @@ actor.save
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+# genre = Genre.create([{ name: "horror" }, {name: "rom-com"}, { name: "drama" }])
+# genre = Genre.create([{name: "documentary"}, {name: "animation"}])
+
+movie_genre = MovieGenre.create([{genre_id: 2, movie_id: 6 }, {genre_id: 4, movie_id: 2 }, {genre_id: 5, movie_id: 1 }, {genre_id: 5, movie_id: 16 }])
