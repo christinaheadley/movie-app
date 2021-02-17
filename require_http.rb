@@ -1,3 +1,3 @@
 require "http"
-response = HTTP.get("http://localhost:3000/api/all_movies_path")
+response = HTTP.get("https://mysterious-shelf-77181.herokuapp.com/api/all_movies_path")
 pp response.parse
